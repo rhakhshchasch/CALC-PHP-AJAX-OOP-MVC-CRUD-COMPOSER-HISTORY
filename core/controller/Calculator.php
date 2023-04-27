@@ -83,6 +83,6 @@ class Calculator {
     public function removeData()
     {
         $model = new Model();
-        $model->removeData($this->id);
+        $model->remove($this->id);
     }
 }
