@@ -73,8 +73,10 @@ class Calculator {
         if(!is_string($result)){
             $model = new Model();
             $model->setData($this->num1, $this->num2, $this->operator, $result);
+            $result = json_encode(["Result" => $model->getData()]);
+        } else {
+            $result = json_encode(["Result" => $result]);
         }
-        $result = json_encode(["Result" => $result]);
         return $result;
     }
 
