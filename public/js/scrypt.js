@@ -1,26 +1,22 @@
 $(document).ready(function () {
-	
 	$('#form').submit(function (event) {
-		event.preventDefault();					/* отменяет поведение по умолчанию */
-
+		event.preventDefault();					
 		let form = $(this);
-
-		// console.log(event);
-
 		$.ajax({
-			url: 'core/controller/router.php',         	/* Куда пойдет запрос */
-			method: 'post',                    		/* Метод передачи (post или get) */
-			dataType: 'json',						/* Тип данных в ответе (xml, json, script, html) */
-			data: form.serialize(),  				/* Параметры передаваемые в запросе */
-			success: function(output){  			/* функция которая будет выполнена после успешного запроса  */
-								/* В переменной data содержится ответ от calculator.php */
-				let count = output.Result.length;
-				let result = output.Result[count - 1].result;
-				$("#ajaxResult").html(result);
-				for (var i = 0; i < output.Result.length; i++) {
-					var data = "<div id='" + output.Result[i].id + "'><span class='button-del' onclick=deleteRecord('" + output.Result[i].id + "')>Delete</span>"+ output.Result[i].num1 + output.Result[i].operator + output.Result[i].num2 + "=" + output.Result[i].result + "</div>";
+			url: 'core/controller/router.php',         
+			method: 'post',                    		
+			dataType: 'json',						
+			data: form.serialize(),  				
+			success: function(output){  			
+				if (output.Result == "Enter both values first") {
+					$("#ajaxResult").text(output.Result);
+				} else {
+					$("#ajaxResult").text(output.Result[output.Result.length - 1].result);
+					for (var i = 0; i < output.Result.length; i++) {
+						var data = "<div id='" + output.Result[i].id + "'><span class='button-del' onclick=deleteRecord('" + output.Result[i].id + "')>Delete</span>"+ output.Result[i].num1 + output.Result[i].operator + output.Result[i].num2 + "=" + output.Result[i].result + "</div>";
+					}
+					$(".wrapper").append(data);	
 				}
-				if(output.Result != "Enter both values first") $(".wrapper").append(data)			
 				$("input[type=text]").val("")
 			},
 			error: function (jqXHR, exception) {
