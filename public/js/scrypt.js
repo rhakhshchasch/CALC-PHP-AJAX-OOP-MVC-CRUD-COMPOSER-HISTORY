@@ -7,15 +7,17 @@ $(document).ready(function () {
 			method: 'post',                    		
 			dataType: 'json',						
 			data: form.serialize(),  				
-			success: function(output){  			
+			success: function (output) {  
+		
 				if (output.Result == "Enter both values first") {
 					$("#ajaxResult").text(output.Result);
 				} else {
+					output.Result = output.Result.reverse();
 					$("#ajaxResult").text(output.Result[output.Result.length - 1].result);
 					for (var i = 0; i < output.Result.length; i++) {
 						var data = "<div id='" + output.Result[i].id + "'><span class='button-del' onclick=deleteRecord('" + output.Result[i].id + "')>Delete</span>"+ output.Result[i].num1 + output.Result[i].operator + output.Result[i].num2 + "=" + output.Result[i].result + "</div>";
 					}
-					$(".wrapper").append(data);	
+					$(".wrapper").prepend(data);	
 				}
 				$("input[type=text]").val("")
 			},
