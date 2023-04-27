@@ -15,7 +15,6 @@ $data->getData();
     <script src="public/js/scrypt.js"></script>
     <title>Calculator</title>
 </head>
-
 <body>
 <h1>Calculator</h1>
  <form class="form-message" id="form"> 
@@ -34,39 +33,24 @@ $data->getData();
  <div id="AJAX"> Итого: <div id="ajaxResult"></div></div>
  <div id="ajaxHistory"><h1>history</h1>
    <div class="wrapper">
-      <?php
-      foreach($data->getData() as $v):   
-      ?>
+      <?php foreach($data->getData() as $v): ?>
       <div id=<?php echo $v["id"] ?>>
-
       <span style="border: 1px solid green;cursor: pointer;" onclick="deleteRecord(<?php echo $v['id']; ?>)">
 	  Delete
 	 </span>
       <?php  echo "Count:{$v["id"]}=>{$v["num1"]}+{$v["num2"]}={$v["result"]}<br>"; ?> 
-	
-	 </div>
-                
-	
-   <?php endforeach;?>
-
+      </div>
+      <?php endforeach;?>
 </div> 
 </form>
- 
-
 </body>
 <script>
    	function deleteRecord(id) {
-		// id.preventDefault();					/* отменяет поведение по умолчанию */
-		
-		// console.log('remove'+id);
-
 		$.ajax({
-			url: 'core/controller/router.php',         	/* Куда пойдет запрос */
-			method: 'post',                    		/* Метод передачи (post или get) */
-			data: {'id' : id},  				/* Параметры передаваемые в запросе */
-			success: function(output){  			/* функция которая будет выполнена после успешного запроса  */
-				// console.log(output); 
-				    		/* В переменной data содержится ответ от calculator.php */
+			url: 'core/controller/router.php',         	
+			method: 'post',                    		
+			data: {'id' : id},  				
+			success: function(output){  			
 				$("#"+id).remove();
 			},
 			error: function (jqXHR, exception) {
