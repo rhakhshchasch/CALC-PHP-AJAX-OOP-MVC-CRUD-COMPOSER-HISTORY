@@ -32,3 +32,7 @@ div#ajaxDel {
 #ajax>.del-number {
     display: none;
 }
+div#ajax {
+    display: flex;
+    justify-content: space-between;
+}
