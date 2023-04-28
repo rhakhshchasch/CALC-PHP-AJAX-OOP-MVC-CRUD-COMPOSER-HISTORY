@@ -36,3 +36,6 @@ div#ajax {
     display: flex;
     justify-content: space-between;
 }
+div#ajaxResult {
+    margin-right: 20px;
+}
