@@ -32,7 +32,10 @@ $data->getData();
  <input type="text" name="num2" id=""><br><br>
  <input type="hidden" name="submit" value="1">
  <input type="submit" value="Result!"><br><br>
- <div id="AJAX"> answer: <div id="ajaxResult"></div></div>
+ <div id="ajax"> 
+	<div>answer:<div id="ajaxResult"></div></div>	
+	<div class="del-number">delete:<div id="ajaxDel"></div></div>
+</div>
  <div id="ajaxHistory"><h1>history</h1>
    <div class="wrapper">
       <?php
@@ -58,8 +61,8 @@ $data->getData();
 			method: 'post',                    		/* Метод передачи (post или get) */
 			data: {'id' : id},  				/* Параметры передаваемые в запросе */
 			success: function(output){  			/* функция которая будет выполнена после успешного запроса  */
-				// console.log(output); 
-				    		/* В переменной data содержится ответ от calculator.php */
+				$(".del-number").css('display', 'flex');
+				$("#ajaxDel").text(id);
 				$("#"+id).remove();
 			},
 			error: function (jqXHR, exception) {

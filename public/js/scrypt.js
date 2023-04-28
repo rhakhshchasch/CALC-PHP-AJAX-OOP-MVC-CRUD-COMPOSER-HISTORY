@@ -8,7 +8,8 @@ $(document).ready(function () {
 			dataType: 'json',						
 			data: form.serialize(),  				
 			success: function (output) {  
-		
+				$("#ajax>div:first-child").css('display', 'flex');
+				// console.log(output);
 				if (output.Result == "Enter both values first") {
 					$("#ajaxResult").text(output.Result);
 				} else {
