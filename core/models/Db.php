@@ -2,7 +2,7 @@
 namespace App\Models;
 
 class Db {
-    protected $db;
+    protected $db = null;
     private $host = 'localhost';
     private $db_name = 'calc';
     private $username = 'root';
@@ -17,4 +17,7 @@ class Db {
             echo $e->getMessage();
         }
     }
+    public function __destruct() {
+		$this->db = null;
+	}
 }
