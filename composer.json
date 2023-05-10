@@ -4,5 +4,8 @@
             "App\\Controllers\\": "core/controller",
             "App\\Models\\": "core/models"
         }
+    },
+    "require": {
+        "mobiledetect/mobiledetectlib": "^3.74"
     }
 }

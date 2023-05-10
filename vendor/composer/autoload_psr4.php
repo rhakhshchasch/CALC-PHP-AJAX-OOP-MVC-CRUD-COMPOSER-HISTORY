@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Detection\\' => array($vendorDir . '/mobiledetect/mobiledetectlib/src'),
     'App\\Models\\' => array($baseDir . '/core/models'),
     'App\\Controllers\\' => array($baseDir . '/core/controller'),
 );

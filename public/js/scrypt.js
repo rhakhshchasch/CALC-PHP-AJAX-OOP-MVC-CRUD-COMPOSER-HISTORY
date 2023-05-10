@@ -1,4 +1,40 @@
+function deleteRecord(id) {
+				/* отменяет поведение по умолчанию */
+	
+	// console.log('remove'+id);
+
+	$.ajax({
+		url: 'core/controller/router.php',         	/* Куда пойдет запрос */
+		method: 'post',                    		/* Метод передачи (post или get) */
+		data: {'id' : id},  				/* Параметры передаваемые в запросе */
+		success: function(output){  			/* функция которая будет выполнена после успешного запроса  */
+			$(".del-number").css('display', 'flex');
+			$("#ajaxDel").text(id);
+			$("#"+id).remove();
+		},
+		error: function (jqXHR, exception) {
+			if (jqXHR.status === 0) {
+				console.log('Not connect. Verify Network.');
+			} else if (jqXHR.status == 404) {
+				console.log('Requested page not found (404).');
+			} else if (jqXHR.status == 500) {
+				console.log('Internal Server Error (500).');
+			} else if (exception === 'parsererror') {
+				console.log('Requested JSON parse failed.');
+			} else if (exception === 'timeout') {
+				console.log('Time out error.');
+			} else if (exception === 'abort') {
+				console.log('Ajax request aborted.');
+			} else {
+				console.log('Uncaught Error. ' + jqXHR.responseText);
+			}
+		}
+	
+	})
+}
+
 $(document).ready(function () {
+
 	$('#form').submit(function (event) {
 		event.preventDefault();					
 		let form = $(this);
