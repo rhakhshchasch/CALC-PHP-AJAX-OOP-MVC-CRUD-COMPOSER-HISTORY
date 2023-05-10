@@ -16,7 +16,7 @@ class Calculator extends Db {
 
      public function getData()
     {
-        $stmt = $this->db->query("SELECT * FROM history");
+        $stmt = $this->db->query("SELECT * FROM `history` ORDER BY `id` DESC");
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

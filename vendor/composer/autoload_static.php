@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitbb2fe1eaba99eb6d33d1ee4c2f09bee4
 {
     public static $prefixLengthsPsr4 = array (
+        'D' => 
+        array (
+            'Detection\\' => 10,
+        ),
         'A' => 
         array (
             'App\\Models\\' => 11,
@@ -15,6 +19,10 @@ class ComposerStaticInitbb2fe1eaba99eb6d33d1ee4c2f09bee4
     );
 
     public static $prefixDirsPsr4 = array (
+        'Detection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src',
+        ),
         'App\\Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core/models',
@@ -27,6 +35,7 @@ class ComposerStaticInitbb2fe1eaba99eb6d33d1ee4c2f09bee4
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/MobileDetect.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

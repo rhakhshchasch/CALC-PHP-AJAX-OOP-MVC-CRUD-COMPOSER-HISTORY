@@ -12,8 +12,30 @@ body {
     padding: 20px;
     border-radius: 20px;
 }
-
 .wrapper {
-    height: 100px;
+    max-height: 200px;
     overflow: auto;
+}
+.button-del {
+    border: 1px solid green;
+    cursor: pointer;
+    margin-right: 10px;
+}
+div#ajaxResult,
+div#ajaxDel {
+    font-size: 20px;
+    font-weight: bold;
+}
+#ajax>div {
+    display: none;
+}
+#ajax>.del-number {
+    display: none;
+}
+div#ajax {
+    display: flex;
+    justify-content: space-between;
+}
+div#ajaxResult {
+    margin-right: 20px;
 }
