@@ -20,7 +20,7 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 </head>
 <body>
 <h1>Calculator</h1>
- <p>Device:<span><b>phone</b></span></p>
+ <p>Device:<span><b><?php echo $deviceType; ?></b></span></p>
  <form class="form-message" id="form"> 
  <label for="num1">Enter first number</label>   
  <input type="text" name="num1" id=""><br><br>
