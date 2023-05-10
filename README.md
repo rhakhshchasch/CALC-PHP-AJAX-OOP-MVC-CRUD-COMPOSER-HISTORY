@@ -1,2 +1,2 @@
 ### Calculator-php-ajax-oop-mvc-crud-composer-history
-![image](https://user-images.githubusercontent.com/55090151/234926669-80471c1f-0d49-4648-bbe3-3a8cf027df84.png)
+![image](https://github.com/SENATOROVAI/Calculator-php-ajax-oop-mvc-crud-composer-history/assets/55090151/9f7829dc-7325-4936-ac59-ec15ccdfcff7)
