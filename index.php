@@ -3,7 +3,6 @@ require_once 'vendor/autoload.php';
 use App\Models\Calculator;
 $data = new Calculator();
 $data->getData();
-
 $detect = new \Detection\MobileDetect;
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 ?>
@@ -19,9 +18,9 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
     <script src="public/js/scrypt.js"></script>
     <title>Calculator</title>
 </head>
-
 <body>
 <h1>Calculator</h1>
+ <p>Device:<span><b>phone</b></span></p>
  <form class="form-message" id="form"> 
  <label for="num1">Enter first number</label>   
  <input type="text" name="num1" id=""><br><br>
@@ -39,8 +38,6 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 	<div>answer:<div id="ajaxResult"></div></div>	
 	<div class="del-number">delete:<div id="ajaxDel"></div></div>
 </div>
-<p>Device:<span><b><?php echo $deviceType; ?></b></span></p>
-
  <div id="ajaxHistory"><h1>history</h1>
    <div class="wrapper">
       <?php
@@ -49,10 +46,7 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
       <div id=<?php echo $v["id"] ?>>
       <span class='button-del' onclick="deleteRecord(<?php echo $v['id']; ?>)">Delete</span><?php  echo "{$v["num1"]}+{$v["num2"]}={$v["result"]}<br>"; ?></div>
    <?php endforeach;?>
-
 </div> 
 </form>
- 
-
 </body>
 </html>
